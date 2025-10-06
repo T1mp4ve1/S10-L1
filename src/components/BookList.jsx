@@ -10,7 +10,9 @@ class BookList extends Component {
   };
 
   handleBookSelect = (book) => {
-    this.setState({ selectedBook: book });
+    this.setState((prevState) => ({
+      selectedBook: prevState.selectedBook?.asin === book.asin ? null : book,
+    }));
   };
 
   render() {
@@ -50,16 +52,16 @@ class BookList extends Component {
                 ))}
             </Row>
           </Col>
-          <Col xs={3} className="bg-dark">
+
+          <Col xs={3} className="bg-dark rounded-3 sticky-top">
             {selectedBook ? (
-              <>
-                <h5 className="mb-3">
-                  Commenti per: <em>{selectedBook.title}</em>
-                </h5>
-                <CommentArea asin={selectedBook.asin} />
-              </>
+              <CommentArea asin={selectedBook.asin}/>
             ) : (
-              <Alert variant="secondary" className="text-center mt-2">
+              <Alert
+                id="alertFixed"
+                variant="secondary"
+                className="text-center mt-3 sticky-top"
+              >
                 Seleziona un libro per vedere i commenti
               </Alert>
             )}

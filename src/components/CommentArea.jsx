@@ -36,10 +36,16 @@ class CommentArea extends Component {
     this.fetchComments();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.asin !== this.props.asin) {
+      this.fetchComments();
+    }
+  }
+
   render() {
     return (
-      <div id="commentArea" className="text-light p-2">
-        <h3>Commenti:</h3>
+      <div id="commentArea" className="text-light p-2 sticky-top">
+        <h3>Commenti del libro selezionato:</h3>
         <CommentsList comments={this.state.comments} />
         <AddComment asin={this.props.asin} />
       </div>

@@ -7,10 +7,13 @@
   transition: all 0.3s;
 }
 
-#commentArea {
-  width: 100%;
+/* #commentArea {
   position: fixed;
 }
+
+#alertFixed {
+  position: fixed;
+} */
 
 
 .card-img-top {
