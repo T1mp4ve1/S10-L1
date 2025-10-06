@@ -1,0 +1,30 @@
+#root {
+  margin: auto;
+}
+
+/* card */
+.card {
+  transition: all 0.3s;
+}
+
+#commentArea {
+  width: 100%;
+  position: fixed;
+}
+
+
+.card-img-top {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* p {
+  color: rgb(178, 178, 178);
+} */
